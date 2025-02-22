@@ -3130,6 +3130,8 @@ input::-moz-focus-inner {
  * ## header logo
  * ------------------------------------------------------------------- */
 .s-header__logo {
+    max-width: 100px;
+    margin-top: 20px;
     z-index: 101;
     display: inline-block;
     margin: 0;
