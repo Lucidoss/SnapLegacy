@@ -4676,68 +4676,6 @@ html.no-csstransitions .s-hero__content {
     }
 }
 
-
-
-/* ===================================================================
- * # contact
- *
- * ------------------------------------------------------------------- */
-.s-contact {
-    background-color: var(--color-1);
-    padding-top: calc(6 * var(--space));
-    padding-bottom: var(--vspace-2);
-}
-
-.s-contact__top .h6 {
-    color: black;
-    margin-top: 0;
-    margin-bottom: var(--vspace-1);
-}
-
-.s-contact__email {
-    margin-top: var(--vspace-1_5);
-    font-family: var(--font-2);
-    font-size: calc(var(--text-size) * 6.6);
-    font-weight: 500;
-    letter-spacing: -0.01em;
-    line-height: 1;
-}
-
-.s-contact__email a {
-    color: white;
-    border-bottom: 2px solid transparent;
-}
-
-.s-contact__email a:hover, 
-.s-contact__email a:focus {
-    border-bottom: 2px solid white;
-}
-
-
-/* ------------------------------------------------------------------- 
- * responsive:
- * contact
- * ------------------------------------------------------------------- */
-@media screen and (max-width: 1600px) {
-    .s-contact__email {
-        font-size: calc(var(--text-size) * 6);
-    }
-}
-
-@media screen and (max-width: 1200px) {
-    .s-contact__email {
-        font-size: 10vw;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .s-contact {
-        padding-top: var(--vspace-4);
-    }
-}
-
-
-
 /* ===================================================================
  * # footer
  *
