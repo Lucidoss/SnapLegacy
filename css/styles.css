@@ -3499,7 +3499,7 @@ input::-moz-focus-inner {
 }
 
 .s-hero__bg {
-    background-image: url(../images/hero-bg.jpg);
+    background-image: url(../images/hero-bg.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
