@@ -141,6 +141,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const prevButton = document.querySelector('.testimonial-prev');
         const nextButton = document.querySelector('.testimonial-next');
         
+        if (!testimonialWrapper || testimonialItems.length === 0) {
+            console.warn('Testimonial slider elements not found');
+            return;
+        }
+        
         let currentIndex = 0;
         const itemsCount = testimonialItems.length;
         
@@ -209,11 +214,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         
         function handleSwipe() {
-            // Detect direction
-            if (touchEndX < touchStartX) {
+            const swipeThreshold = 50; // Minimum distance to consider as swipe
+            const swipeDistance = touchEndX - touchStartX;
+            
+            // Detect direction with threshold to avoid accidental swipes
+            if (swipeDistance < -swipeThreshold) {
                 // Swipe left - show next
                 showTestimonial(currentIndex + 1);
-            } else if (touchEndX > touchStartX) {
+            } else if (swipeDistance > swipeThreshold) {
                 // Swipe right - show previous
                 showTestimonial(currentIndex - 1);
             }

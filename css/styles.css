@@ -850,7 +850,7 @@ section {
 }
 
 .testimonial-container {
-    max-width: 500px;
+    max-width: 700px;
     margin: 0 auto;
     position: relative;
     padding: 20px 0;
@@ -884,7 +884,10 @@ section {
     text-align: center;
     margin: 0 20px;
     border-left: 3px solid var(--color-primary);
-    height: 100%;
+    height: auto;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
 }
 
 .testimonial-quote {
@@ -900,6 +903,7 @@ section {
 
 .testimonial-text {
     margin-bottom: var(--spacing-md);
+    flex-grow: 1;
 }
 
 .testimonial-text p {
@@ -912,6 +916,7 @@ section {
     max-width: 100%;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    overflow: hidden;
 }
 
 .testimonial-author {
@@ -1331,6 +1336,30 @@ section {
 
     .footer-social {
         justify-content: center;
+    }
+
+    .testimonial-inner {
+        padding: var(--spacing-md);
+        margin: 0 10px;
+    }
+
+    .testimonial-text p {
+        font-size: 0.9rem;
+    }
+
+    .testimonial-author h4 {
+        font-size: 1rem;
+    }
+
+    .testimonial-author span {
+        font-size: 0.8rem;
+    }
+    
+    .testimonial-prev,
+    .testimonial-next {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
     }
 }
 
