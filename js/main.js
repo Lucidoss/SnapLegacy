@@ -35,22 +35,80 @@ document.addEventListener('DOMContentLoaded', () => {
         const menuToggle = document.querySelector('.menu-toggle');
         const navigation = document.querySelector('.navigation');
         const navLinks = document.querySelectorAll('.nav-link');
+        let overlay = null;
+        
+        // Créer un overlay pour l'arrière-plan lors de l'ouverture du menu
+        function createOverlay() {
+            overlay = document.createElement('div');
+            overlay.className = 'menu-overlay';
+            document.body.appendChild(overlay);
+            
+            // Fermer le menu quand on clique sur l'overlay
+            overlay.addEventListener('click', closeMenu);
+            
+            // Empêcher le défilement quand le menu est ouvert
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function removeOverlay() {
+            if (overlay) {
+                document.body.removeChild(overlay);
+                overlay = null;
+                
+                // Réactiver le défilement
+                document.body.style.overflow = '';
+            }
+        }
+        
+        function openMenu() {
+            menuToggle.classList.add('active');
+            navigation.classList.add('active');
+            createOverlay();
+        }
+        
+        function closeMenu() {
+            menuToggle.classList.remove('active');
+            navigation.classList.remove('active');
+            removeOverlay();
+        }
         
         // Toggle mobile menu
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            navigation.classList.toggle('active');
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation(); // Empêcher la propagation pour éviter des conflits
+            if (menuToggle.classList.contains('active')) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
         });
         
         // Close menu when clicking a link (on mobile)
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 if (window.innerWidth <= 768) {
-                    menuToggle.classList.remove('active');
-                    navigation.classList.remove('active');
+                    closeMenu();
                 }
             });
         });
+        
+        // Détection des événements tactiles pour fermer le menu avec un swipe
+        if (window.innerWidth <= 768) {
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            navigation.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            
+            navigation.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                
+                // Swipe de droite à gauche pour fermer le menu
+                if (touchStartX - touchEndX > 50) {
+                    closeMenu();
+                }
+            });
+        }
         
         // Header scroll effect
         window.addEventListener('scroll', () => {

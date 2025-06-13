@@ -275,6 +275,8 @@ section {
 .menu-toggle {
     display: none;
     cursor: pointer;
+    z-index: var(--z-overlay);
+    position: relative;
 }
 
 .hamburger {
@@ -1275,6 +1277,8 @@ section {
 
     .menu-toggle {
         display: block;
+        position: relative;
+        z-index: 1001;
     }
 
     .navigation {
@@ -1286,8 +1290,10 @@ section {
         height: 100vh;
         background-color: var(--color-dark);
         padding: 80px var(--spacing-lg) var(--spacing-lg);
-        z-index: var(--z-overlay);
+        z-index: 1000;
         box-shadow: -5px 0 30px rgba(0, 0, 0, 0.3);
+        overflow-y: auto;
+        transition: right 0.3s ease;
     }
 
     .navigation.active {
@@ -1309,57 +1315,6 @@ section {
         display: inline-block;
         text-align: center;
         width: 100%;
-    }
-
-    .about-content {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-lg);
-    }
-
-    .about-features {
-        grid-template-columns: 1fr;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-lg);
-        text-align: center;
-    }
-
-    .footer-nav ul {
-        justify-content: center;
-    }
-
-    .footer-social {
-        justify-content: center;
-    }
-
-    .testimonial-inner {
-        padding: var(--spacing-md);
-        margin: 0 10px;
-    }
-
-    .testimonial-text p {
-        font-size: 0.9rem;
-    }
-
-    .testimonial-author h4 {
-        font-size: 1rem;
-    }
-
-    .testimonial-author span {
-        font-size: 0.8rem;
-    }
-    
-    .testimonial-prev,
-    .testimonial-next {
-        width: 35px;
-        height: 35px;
-        font-size: 1rem;
     }
 }
 
@@ -1401,4 +1356,23 @@ section {
         text-align: center;
         margin-bottom: var(--spacing-sm);
     }
+}
+
+/* ================================
+   MENU OVERLAY
+================================ */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
