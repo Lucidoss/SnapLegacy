@@ -1232,18 +1232,81 @@ section {
 /* ================================
    RESPONSIVE STYLES
 ================================ */
+@media (max-width: 1200px) {
+    .container {
+        padding: 0 var(--spacing-md);
+    }
+}
+
 @media (max-width: 1024px) {
     html {
         font-size: 15px;
     }
 
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .about-text {
+        text-align: left;
+    }
+
+    .image-container {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .about-features {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+        margin-top: var(--spacing-lg);
+    }
+
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+
+    .service-card {
+        min-height: 280px;
     }
 
     .counter-grid {
         grid-template-columns: repeat(2, 1fr);
         row-gap: var(--spacing-xl);
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: var(--spacing-md);
+    }
+
+    .footer-nav ul {
+        justify-content: center;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 900px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-features {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -1261,18 +1324,67 @@ section {
     }
 
     section {
-        padding: var(--spacing-xl) 0;
+        padding: calc(var(--spacing-xl) * 0.8) 0;
     }
-      .testimonial-card {
-        min-width: calc(100% - 40px);
-        max-width: calc(100% - 40px);
-        width: calc(100% - 40px);
-        margin: 0 20px;
-        padding: var(--spacing-md) var(--spacing-sm);
+
+    .container {
+        padding: 0 var(--spacing-md);
     }
-    
-    .testimonial-slider {
-        max-width: 90%;
+
+    .hero {
+        min-height: 600px;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: var(--spacing-xl);
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-md);
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+
+    .testimonial-container {
+        max-width: 100%;
+        padding: 15px 0;
+        margin: 0 var(--spacing-sm);
+    }
+
+    .testimonial-inner {
+        margin: 0 var(--spacing-sm);
+        padding: var(--spacing-md);
+        min-height: 180px;
+    }
+
+    .testimonial-text p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .testimonial-controls {
+        margin-top: var(--spacing-md);
+        gap: var(--spacing-md);
+    }
+
+    .testimonial-prev,
+    .testimonial-next {
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
     }
 
     .menu-toggle {
@@ -1316,9 +1428,33 @@ section {
         text-align: center;
         width: 100%;
     }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .counter-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+
+    .counter-value {
+        font-size: 2.5rem;
+    }
+
+    .counter-suffix {
+        font-size: 1.8rem;
+    }
 }
 
 @media (max-width: 480px) {
+    html {
+        font-size: 13px;
+    }
+
     h1 {
         font-size: 2.2rem;
     }
@@ -1327,34 +1463,160 @@ section {
         font-size: 1.8rem;
     }
 
-    .hero-cta {
+    .container {
+        padding: 0 var(--spacing-md);
+    }
+
+    .hero {
+        min-height: 500px;
+        padding: var(--spacing-xl) 0;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+        line-height: 1.1;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .btn {
+        padding: 0.65rem 1.25rem;
+        font-size: 0.9rem;
+    }
+
+    .service-card {
+        padding: var(--spacing-md);
+    }
+
+    .feature {
         flex-direction: column;
-    }    .counter-grid {
+        text-align: center;
+        gap: var(--spacing-sm);
+    }
+
+    .feature-icon {
+        align-self: center;
+    }
+
+    .counter-grid {
         grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .counter-value {
+        font-size: 2.2rem;
+    }
+
+    .counter-suffix {
+        font-size: 1.6rem;
     }
 
     .testimonial-container {
-        max-width: 90%;
         padding: 10px 0;
     }
 
     .testimonial-inner {
         padding: var(--spacing-md);
-        margin: 0 10px;
+        margin: 0 8px;
+        min-height: 160px;
     }
 
     .testimonial-text p {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .testimonial-author h4 {
+        font-size: 1rem;
     }
 
     .footer-bottom {
         flex-direction: column;
         gap: var(--spacing-md);
+        text-align: center;
     }
 
-    .copyright {
-        text-align: center;
-        margin-bottom: var(--spacing-sm);
+    .navigation {
+        width: 90%;
+        padding: 60px var(--spacing-md) var(--spacing-md);
+    }
+
+    .experience {
+        bottom: 15px;
+        left: 15px;
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    .experience .number {
+        font-size: 1.5rem;
+    }
+
+    .experience .text {
+        font-size: 0.75rem;
+    }
+}
+
+/* ================================
+   ACCESSIBILITY IMPROVEMENTS
+================================ */
+/* Focus styles for keyboard navigation */
+.btn:focus,
+.nav-link:focus,
+.social-link:focus,
+.testimonial-prev:focus,
+.testimonial-next:focus,
+#back-to-top:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Skip to main content link for screen readers */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background-color: var(--color-primary);
+    color: var(--color-dark);
+    padding: 8px;
+    z-index: 100000;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --color-primary: #FFD700;
+        --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
+        --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+        --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.7);
+    }
+    
+    .service-card,
+    .testimonial-inner {
+        border: 1px solid var(--color-primary);
     }
 }
 
@@ -1375,4 +1637,51 @@ section {
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+
+/* ================================
+   MOBILE OPTIMIZATIONS
+================================ */
+@media (max-width: 768px) {
+    /* Améliorer la zone tactile des boutons */
+    .btn, .nav-link, .social-link, .testimonial-prev, .testimonial-next {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    /* Espacer les éléments tactiles */
+    .testimonial-controls {
+        gap: var(--spacing-lg);
+    }
+
+    /* Améliorer la lisibilité */
+    .service-card p, .feature-text p {
+        line-height: 1.5;
+    }
+
+    /* Réduire l'animation sur mobile pour économiser la batterie */
+    * {
+        animation-duration: 0.3s !important;
+        transition-duration: 0.3s !important;
+    }
+
+    /* Masquer les éléments décoratifs sur très petits écrans */
+    .hero-graphics .circle,
+    .hero-graphics .hexagon,
+    .hero-graphics .dot-grid {
+        display: none;
+    }
+}
+
+/* Touch devices optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .service-card:hover,
+    .about-image:hover img {
+        transform: none;
+    }
+
+    .service-hover {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
